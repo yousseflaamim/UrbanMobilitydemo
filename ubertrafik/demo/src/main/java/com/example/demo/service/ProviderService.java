@@ -24,7 +24,7 @@ public class ProviderService {
     }
     public Provider findProviderByProviderName(String providerName) {
         return providerRepository.findByProviderName(providerName)
-                .orElseThrow(() -> new EntityNotFoundException("مقدم الخدمة غير موجود بالاسم: " + providerName));
+                .orElseThrow(() -> new EntityNotFoundException(“Service provider not found by name: " + providerName));
     }
     public void deleteProviderByProviderName(String providerName) {
         Provider provider = findProviderByProviderName(providerName);
@@ -44,19 +44,14 @@ public class ProviderService {
     public void deleteAllProviders() {
     }
     public static String chooseTransportation(User user, String TypeTransportation) {
-        // هنا يمكنك تحديد وسيلة النقل بناءً على نوع النقل الممرر
         if ("car".equalsIgnoreCase(TypeTransportation)) {
-            // إذا كان نوع النقل هو "car"، يمكنك إرجاع سلسلة نصية تمثل السيارة
             return "Car";
         } else if ("train".equalsIgnoreCase(TypeTransportation)) {
-            // إذا كان نوع النقل هو "train"، يمكنك إرجاع سلسلة نصية تمثل القطار
             return "Train";
         } else if ("bus".equalsIgnoreCase(TypeTransportation)) {
-            // إذا كان نوع النقل هو "bus"، يمكنك إرجاع سلسلة نصية تمثل الحافلة
             return "Bus";
         } else {
-            // إذا كان نوع النقل غير معروف، يمكنك إلقاء استثناء أو اتخاذ إجراء آخر حسب احتياجات مشروعك
-            throw new IllegalArgumentException("نوع وسيلة النقل غير معروف: " + TypeTransportation);
+            throw new IllegalArgumentException("Type of transportation unknown: " + TypeTransportation);
         }
     }
 
