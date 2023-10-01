@@ -31,18 +31,15 @@ public class BookingService {
         this.userRepository = userRepository;
     }
 
-    // إنشاء حجز جديد
     public Booking chooseTransportationAndBook(String departureLocation, String arrivalLocation,
                                                LocalDateTime estimatedDepartureTime, double fare,
                                                User user, String transportationType) {
-        // التحقق من وجود المستخدم وأنه من نوع USER
         if (user != null && user.getAccountType() == User.AccountType.USER) {
             Optional<Provider> optionalProvider = providerRepository.findByProviderName(transportationType);
 
             if (optionalProvider.isPresent()) {
                 Provider provider = optionalProvider.get();
 
-                // تحقق من أن وسيلة النقل متاحة
                 if (provider.isAvailable()) {
                     Booking booking = new Booking();
                     booking.setDepartureLocation(departureLocation);
@@ -52,9 +49,7 @@ public class BookingService {
                     booking.setFare(fare);
                     booking.setAccount(user);
 
-                    // يمكنك تعيين المزيد من الخصائص المتعلقة بالحجز هنا
 
-                    // تحديث حالة وسيلة النقل إلى غير متاحة بعد الحجز
                     provider.setAvailable(false);
 
                     boolean paymentSuccess = paymentService.processPayment(user, booking);
@@ -63,19 +58,19 @@ public class BookingService {
 
                         booking.setPaid(true);
                     } else {
-                        throw new PaymentFailedException("فشلت عملية الدفع");
+                        throw new PaymentFailedException("Payment failed");
                     }
 
 
                     return bookingRepository.save(booking);
                 } else {
-                    throw new IllegalArgumentException("وسيلة النقل غير متاحة حاليًا");
+                    throw new IllegalArgumentException("Transportation is currently unavailable.”);
                 }
             } else {
-                throw new IllegalArgumentException("وسيلة النقل غير معروفة");
+                throw new IllegalArgumentException("Mean of transport unknown");
             }
         } else {
-            throw new IllegalArgumentException("يجب على المستخدم أن يكون من نوع USER للحجز");
+            throw new IllegalArgumentException(“User must be of type USER to book");
         }
     }
 
