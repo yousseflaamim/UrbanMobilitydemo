@@ -40,12 +40,9 @@ public class Booking {
 
 
 
-    // Constructors, getters, setters, and other methods
 
-    private boolean paid; // خاصية تحديد ما إذا كان الحجز مدفوعًا أم لا
-
-    // الأتربيوت والطرق اللازمة
-
+    private boolean paid;
+  
     public boolean isPaid() {
         return paid;
     }
