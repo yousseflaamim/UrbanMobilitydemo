@@ -20,7 +20,7 @@ public class Payment {
     private LocalDate paymentDate;
     private double amount;
 
-    // العلاقة مع حجز النقل
+
     @ManyToOne
     @JoinColumn(name = "booking_id")
     private Booking booking;
