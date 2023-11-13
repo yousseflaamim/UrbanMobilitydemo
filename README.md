@@ -25,6 +25,17 @@
 <p>in Build Steps choose Execute Windows batch command and i put comand git fetch origin for jenkins alwyes check if there is new update for step 1 and step 2 i put comand  git pull origin main if there is new update take new version </p>
 <br />
 <img width="960" alt="7" src="https://github.com/yousseflaamim/UrbanMobilitydemo/assets/39153351/21561028-5de4-4a8e-909f-6f1a7abf50e5">
+<p>pipeline</p>
+<br />
+<img width="953" alt="12345" src="https://github.com/yousseflaamim/UrbanMobilitydemo/assets/39153351/b618be54-417d-4acc-a196-cd918cdbdca1">
+<br />
+<img width="908" alt="1234567" src="https://github.com/yousseflaamim/UrbanMobilitydemo/assets/39153351/54feb45f-785d-4846-8a29-91a1c5728a03">
+<br />
+
+<img width="945" alt="12345678" src="https://github.com/yousseflaamim/UrbanMobilitydemo/assets/39153351/d241c14e-6bbf-42f0-a9c8-aaf3ecfcce60">
 
 <br />
+<img width="655" alt="datbas" src="https://github.com/yousseflaamim/UrbanMobilitydemo/assets/39153351/b2d2bc63-bd51-4378-af57-3a55f492c0c2">
+<br />
+
 
